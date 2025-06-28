@@ -204,62 +204,15 @@ OPENAI_API_KEY=your-openai-api-key
 - **Business**: Analyze documents and generate training materials
 - **Personal**: Interactive reading and learning from any text document
 
-## 🔒 Security Considerations
-
-- **API Key Management**: Move OpenAI key to environment variables
-- **File Upload Limits**: Consider adding file size restrictions
-- **Input Validation**: Sanitize user inputs for production use
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **"No answer found"**: Document may need better chunking or question rephrasing
-2. **Quiz generation fails**: Check OpenAI API key and document length
-3. **Memory issues**: Large documents may require chunking optimization
-
-### Performance Tips
-
-- Keep documents under 10MB for optimal performance
-- Use specific questions for better answer quality
-- Allow time for model loading on first run
-
 ## 🚧 Future Enhancements
 
 - [ ] Multi-language support
 - [ ] Advanced document formats (DOCX, HTML)
 - [ ] Custom model fine-tuning
-- [ ] Batch document processing
-- [ ] Export functionality for quizzes
-- [ ] User authentication and document management
-
-## 📊 Performance Metrics
-
-- **Text Processing**: ~1-2 seconds per MB
-- **Question Answering**: ~2-3 seconds per query
-- **Quiz Generation**: ~10-15 seconds for 3 questions
-- **Memory Usage**: ~500MB-1GB depending on document size
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
 
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
-
-- **HuggingFace** for transformer models
-- **OpenAI** for GPT-4o-mini
-- **Streamlit** for the web framework
-- **FAISS** for vector similarity search
-- **LangChain** for document processing utilities
-
----
 
 **⚠️ Important Security Note**: Before deploying to production, ensure you properly secure your OpenAI API key using environment variables or a secure key management system.
