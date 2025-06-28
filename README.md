@@ -14,74 +14,49 @@ A powerful Streamlit application that enables users to upload documents (PDF/TXT
 
 ## 🏗️ Architecture
 
-```mermaid
-graph TB
-    subgraph "User Interface Layer"
-        UI[Streamlit Web App]
-        FU[File Upload]
-        QI[Question Input]
-        QZ[Quiz Interface]
-        CH[Chat History Sidebar]
-    end
-    
-    subgraph "Processing Layer"
-        TE[Text Extraction]
-        TC[Text Chunking]
-        SU[Summarization]
-        QG[Quiz Generation]
-    end
-    
-    subgraph "AI/ML Layer"
-        HF[HuggingFace Models]
-        EM[Embeddings Model]
-        QA[Q&A Pipeline]
-        SM[Summarizer]
-        GPT[OpenAI GPT-4]
-    end
-    
-    subgraph "Vector Storage"
-        VS[FAISS Vector Store]
-        VD[Vector Database]
-    end
-    
-    subgraph "Evaluation Engine"
-        AE[Answer Evaluator]
-        KW[Keyword Matching]
-        SIM[Similarity Scoring]
-        NUM[Number Extraction]
-    end
-    
-    UI --> FU
-    UI --> QI
-    UI --> QZ
-    UI --> CH
-    
-    FU --> TE
-    TE --> TC
-    TC --> VS
-    TC --> SU
-    
-    QI --> QA
-    QA --> VS
-    VS --> VD
-    
-    QZ --> QG
-    QG --> GPT
-    
-    SU --> SM
-    SM --> HF
-    QA --> HF
-    EM --> HF
-    
-    QZ --> AE
-    AE --> KW
-    AE --> SIM
-    AE --> NUM
-    
-    style UI fill:#e1f5fe
-    style HF fill:#f3e5f5
-    style VS fill:#e8f5e8
-    style AE fill:#fff3e0
+```
+┌─────────────────────────┐
+                    │    Document Upload      │
+                    │    (PDF/TXT Files)      │
+                    └───────────┬─────────────┘
+                                ▼
+                    ┌─────────────────────────┐
+                    │    Text Processing      │
+                    │  (Extract & Chunk)      │
+                    └───────────┬─────────────┘
+                                ▼
+                    ┌─────────────────────────┐
+                    │   Vector Database       │
+                    │   (FAISS Storage)       │
+                    └──────┬──────────────────┘
+                           │
+                    ┌──────▼──────┐
+                    │ Summarization│
+                    │  (BART Model)│
+                    └──────┬──────┘
+                           ▼
+                    ┌─────────────────────────┐
+                    │    Mode Selection       │
+                    └──────┬──────────────────┘
+                           │
+                 ┌─────────▼─────────┐
+                 │                   │
+                 ▼                   ▼
+        ┌─────────────────┐ ┌──────────────────┐
+        │ Ask Anything    │ │ Challenge Me     │
+        │     Mode        │ │     Mode         │
+        ├─────────────────┤ ├──────────────────┤
+        │ • User asks Q   │ │ • Generate quiz  │
+        │ • AI searches   │ │   (GPT-4)        │
+        │ • Returns answer│ │ • User answers   │
+        │ • Shows source  │ │ • AI evaluates   │
+        └─────────────────┘ └──────────────────┘
+                 │                   │
+                 ▼                   ▼
+        ┌─────────────────┐ ┌──────────────────┐
+        │ Chat History    │ │ Quiz Results     │
+        │   Storage       │ │   & Scoring      │
+        └─────────────────┘ └──────────────────┘
 ```
 
 ## 🚀 Quick Start
