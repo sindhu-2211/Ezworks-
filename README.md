@@ -10,7 +10,6 @@ A powerful Streamlit application that enables users to upload documents (PDF/TXT
 - **Interactive Quiz Generation**: AI-generated quizzes to test comprehension
 - **Chat History**: Persistent conversation history with timestamps
 - **Document Summarization**: Automatic summary generation
-- **Advanced Answer Evaluation**: Multi-criteria scoring system for quiz answers
 
 ## 🏗️ Architecture
 
