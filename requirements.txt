@@ -8,6 +8,11 @@ langchain-openai==0.3.17
 langchain-core==0.3.66
 langchain-text-splitters==0.3.8
 langsmith==0.3.45
+...
+
+# FAISS for vector store (required by LangChain)
+faiss-cpu>=1.9.0.post1
+
 
 # Text & PDF handling
 pdfminer.six==20250506
