@@ -1,26 +1,22 @@
-import os
-from dotenv import load_dotenv  # ✅ ADD THIS
-
-# Load environment variables from .env file
-load_dotenv()  # ✅ LOAD .env
-
+# ─── Imports ────────────────────────────────────────────────────────────
+import streamlit as st            # ← keep this first
 from openai import OpenAI
-import re
-import json
-import string
+
+import re, os, json, string
 from datetime import datetime
 from typing import List, Tuple, Optional, Set
 
-import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.vectorstores import FAISS
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from transformers import pipeline
 import difflib
+# ────────────────────────────────────────────────────────────────────────
 
-# ────────────────────────────────────────────────
-# ✅ Replace hard-coded key with environment variable
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# ─── OpenAI client via Streamlit Secrets ────────────────────────────────
+api_key = st.secrets["OPENAI_API_KEY"]        # pulls the key you added in
+client  = OpenAI(api_key=api_key)             # initialise the client
+# ────────────────────────────────────────────────────────────────────────
 
 # ────────────────────────────────────────────────
 
