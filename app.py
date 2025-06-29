@@ -1,5 +1,10 @@
-# app.py
 import os
+from dotenv import load_dotenv  # ✅ ADD THIS
+
+# Load environment variables from .env file
+load_dotenv()  # ✅ LOAD .env
+
+from openai import OpenAI
 import re
 import json
 import string
@@ -11,13 +16,12 @@ from PyPDF2 import PdfReader
 from langchain.vectorstores import FAISS
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from transformers import pipeline
-from openai import OpenAI
 import difflib
 
 # ────────────────────────────────────────────────
-# ⚠️  HARD‑CODED OPENAI KEY — replace for production
-os.environ["OPENAI_API_KEY"] = "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"
+# ✅ Replace hard-coded key with environment variable
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 # ────────────────────────────────────────────────
 
 qa_pipeline = pipeline("question-answering", model="deepset/roberta-base-squad2")
