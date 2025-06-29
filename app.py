@@ -16,7 +16,7 @@ import difflib
 
 # ────────────────────────────────────────────────
 # ⚠️  HARD‑CODED OPENAI KEY — replace for production
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # ────────────────────────────────────────────────
 
